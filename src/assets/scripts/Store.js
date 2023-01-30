@@ -2,29 +2,29 @@ import Mediator from './Mediator';
 import Utils from './Utils';
 
 const mediator = new Mediator();
-// "max-classes-per-file": false
+
 class Store {
   constructor(url) {
     /**
-         * Ссылка по которой запрашиваем данные
-         * @type {String}
-         */
+     * Ссылка по которой запрашиваем данные
+     * @type {String}
+     */
     this.url = url;
 
     /**
-         * Хранилище для работы с удалённым сервесом
-         */
+     * Хранилище для работы с удалённым сервесом
+     */
     this.apiStore = null;
 
     /**
-         * Хранилище для работы с localStorage
-         */
+     * Хранилище для работы с localStorage
+     */
     this.localStore = null;
   }
 
   /**
-     * Инициализация компонента
-     */
+   * Инициализация компонента
+   */
   init() {
     this.#initStores();
     this.#subscribe();
@@ -415,6 +415,10 @@ class LocalStoreDrops {
 }
 
 class LocalStorePagination {
+  /**
+   * Обновляет данные о пагинации
+   * @param {Object} data - новые данные
+   */
   static updatePaginationInfo(data) {
     const { previous, next } = data;
     const pagination = {};
@@ -436,6 +440,9 @@ class LocalStorePagination {
     mediator.publish('localStore:updatePagination', pagination);
   }
 
+  /**
+   * Сообщает данные о текущей пагинации
+   */
   static getPagination() {
     mediator.publish('localStore:updatePagination', {
       previous: localStorage.getItem('previous'),
@@ -443,24 +450,44 @@ class LocalStorePagination {
     });
   }
 
+  /**
+   * Возвращает ссылку на предыдущую страницу
+   * @return {string}
+   */
   static getPaginationPrevLink() {
     return localStorage.getItem('previous');
   }
 
+  /**
+   * Возвращает ссылку на следующую страницу
+   * @return {string}
+   */
   static getPaginationNextLink() {
     return localStorage.getItem('next');
   }
 
+  /**
+   * Устанавливает номер текущей страницы
+   * @param {String} currentPage
+   */
   static setCurrentPage(currentPage) {
     localStorage.setItem('currentPage', currentPage);
   }
 
+  /**
+   * Возвращает номер текущей страницы
+   */
   static getCurrentPage() {
     return localStorage.getItem('currentPage');
   }
 }
 
 class LocalStoreCustomSort {
+  /**
+   * Проверяет есть ли сохранённая информация о кастомной сортировке
+   * @param {Array} data - данные
+   * @param {Function} action - функция для сохранения результата
+   */
   static checkCustomSort(data, action) {
     const customOrder = JSON.parse(LocalStoreCustomSort.getCustomSort());
 
@@ -479,14 +506,24 @@ class LocalStoreCustomSort {
     action(newArray);
   }
 
+  /**
+   * Сохраняет массив с кастомным порядком сортировки
+   * @param {Array} orderList
+   */
   static setCustomSort(orderList) {
     localStorage.setItem('customSort', JSON.stringify(orderList));
   }
 
+  /**
+   * Возвращает массив с кастомным порядком сортировки
+   */
   static getCustomSort() {
     return localStorage.getItem('customSort');
   }
 
+  /**
+   * Удаялет массив с кастомным порядком сортировки
+   */
   static removeCustomSort() {
     localStorage.removeItem('customSort');
   }
