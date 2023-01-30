@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><% htmlWebpackPlugin.options.title %></title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="row">
+            <div class="actions">
+                <button class="actions__button js-get-data">
+                    Запросить данные
+                </button>
+
+                <button class="actions__button actions__button_theme_warning js-clear-data">
+                    Очистить данные
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="plug js-plug">
+                <div class="plug__icon">
+                    <img src="./assets/icons/box-search.svg" />
+                </div>
+
+                <div class="plug__text">
+                    Тут пока пусто!<br/>
+                    Выполните запрос.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="error-block js-error-block">
+                <div class="error-block__icon">
+                    <img src="./assets/icons/danger.svg" />
+                </div>
+                <div class="error-block__text">
+                    Произошла ошибка!<br/>
+                    Попробуйте позже.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="table js-table">
+                <div class="table__head">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Имя</th>
+                            <th>Рост</th>
+                            <th>Вес</th>
+                            <th>Цвет глаз</th>
+                            <th>Дата рождения</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table__body">
+                    <table class="js-table-body">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination__button js-pagination-prev">Назад</button>
+                    <button class="pagination__button js-pagination-next">Вперёд</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loader-wrapper js-loader">
+            <div class="loader">
+                <div class="loader__particles loader__particles_part-1"></div>
+                <div class="loader__particles loader__particles_part-2"></div>
+                <div class="loader__particles loader__particles_part-3"></div>
+                <div class="loader__particles loader__particles_part-4"></div>
+                <div class="loader__particles loader__particles_part-5"></div>
+                <div class="loader__lightsaber loader__lightsaber_position_left loader__lightsaber_color_green"></div>
+                <div class="loader__lightsaber loader__lightsaber_position_right loader__lightsaber_color_red"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

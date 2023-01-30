@@ -1,0 +1,18 @@
+{
+    "parser": "@babel/eslint-parser",
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "extends": ["airbnb"],
+    "rules": {
+        "no-param-reassign": 0,
+        "no-plusplus": "off",
+        "max-classes-per-file": ["error", 7],
+        "no-use-before-define": ["error", {
+            "functions": true,
+            "classes": false
+        }],
+        "no-console": "off"
+    }
+}

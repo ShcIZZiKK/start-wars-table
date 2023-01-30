@@ -1,0 +1,14 @@
+@import "colors.scss";
+
+@mixin backing($width: 200px) {
+    position: absolute;
+    content: "";
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    border-bottom: 10px solid $main-bg;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    height: 0;
+    width: $width;
+}
