@@ -10,6 +10,7 @@ module.exports = {
   },
 
   output: {
+    publicPath: '/start-wars-table/',
     path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
   },
